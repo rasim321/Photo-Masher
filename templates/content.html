@@ -1,0 +1,23 @@
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Form</title>
+</head>
+
+<body>
+    {% if content_id %}
+    <h1 style="text-align:center"> Content image no. {{content_id}}</h1>
+    <center><img src="\static\\retrieved\\{{content_id}}.JPEG", alt = "content_image" width = "800", height = "600"></center>
+
+    {%endif%}
+
+    {% if style_id %}
+    <h1 style="text-align:center"> Style image no. {{style_id}}</h1>
+    <center><img src="\static\\style_images\\{{style_id}}.JPEG", alt = "content_image" width = "800", height = "600"></center>
+
+    {%endif%}
+
+</body>
+</html>
