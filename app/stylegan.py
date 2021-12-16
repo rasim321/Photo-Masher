@@ -8,8 +8,8 @@ CUDA_VISIBLE_DEVICES=""
 import numpy as np
 import PIL
 
-content_path = "static/retrieved/2.JPEG"
-style_path = "static/style_images/1.JPEG"
+# content_path = "static/retrieved/2.JPEG"
+# style_path = "static/style_images/1.JPEG"
 
 def tensor_to_image(tensor):
     tensor = tensor*255
@@ -39,7 +39,7 @@ def style_transfer(content_path, style_path):
     stylized_image = hub_model(tf.constant(content_image), tf.constant(style_image))[0]
     return tensor_to_image(stylized_image)
 
-if __name__ == "__main__":
-    pic = style_transfer(content_path, style_path)
-    pic.save('static/composite.JPEG')
-    print("done")
+# if __name__ == "__main__":
+#     pic = style_transfer(content_path, style_path)
+#     pic.save('static/composite.JPEG')
+#     print("done")

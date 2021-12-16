@@ -1,7 +1,22 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from .config import settings
+#couldn't use the config.py file because streamlit and uvicorn are throwing
+#different errors for the kind of file import
+#Uvicorn doesn't like "from database" and streamlit doesn't like "from .database"
+from pydantic import BaseSettings
+
+class Settings(BaseSettings):
+    database_username: str
+    database_password: str 
+    database_hostname: str
+    database_name: str
+    database_port: str
+    
+    class Config:
+        env_file = ".env"
+     
+settings = Settings() 
 
 SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
 
