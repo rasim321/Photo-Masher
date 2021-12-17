@@ -7,18 +7,21 @@ from sqlalchemy.orm import sessionmaker
 from pydantic import BaseSettings
 
 class Settings(BaseSettings):
-    database_username: str
-    database_password: str 
-    database_hostname: str
-    database_name: str
-    database_port: str
+    # database_username: str
+    # database_password: str 
+    # database_hostname: str
+    # database_name: str
+    # database_port: str
+    database_url: str
     
     class Config:
         env_file = ".env"
      
 settings = Settings() 
 
-SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
+# SQLALCHEMY_DATABASE_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
+
+SQLALCHEMY_DATABASE_URL = settings.database_url
 
 # SQLALCHEMY_DATABASE_URL = "postgresql://username:password@hostname:port/dbname"
 
