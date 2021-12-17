@@ -5,7 +5,7 @@ from database import return_max_content_id, return_max_style_id
 import time
 import uvicorn
 
-uvicorn.run("app.app:app", host="0.0.0.0")
+# uvicorn.run("app.app:app", host="0.0.0.0")
 
 #Set the title
 st.title("Welcome to photo masher.")
