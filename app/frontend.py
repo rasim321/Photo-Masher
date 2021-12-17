@@ -6,6 +6,7 @@ import time
 import uvicorn
 
 # uvicorn.run("app.app:app", host="0.0.0.0")
+prefix = "https://photo-masher.herokuapp.com"
 
 #Set the title
 st.title("Welcome to photo masher.")
@@ -18,13 +19,13 @@ st.text("Step 2: Hit Mash!")
 content_image = st.file_uploader("Choose a content image")
 if content_image is not None:
     content_file = {"uploaded_file": content_image}
-    content_res = requests.post(f"http://127.0.0.1:8000/content", files=content_file)
+    content_res = requests.post(f"{prefix}/content", files=content_file)
 
 #Photo uploader for style
 style_image = st.file_uploader("Choose a style image")
 if style_image is not None:
     style_file = {"style_file": style_image}
-    style_res = requests.post(f"http://127.0.0.1:8000/style", files=style_file)
+    style_res = requests.post(f"{prefix}/style", files=style_file)
     
 
 upload = st.button("Show Images")
@@ -49,10 +50,10 @@ def comp_image():
     content_id = return_max_content_id()
     style_id = return_max_style_id()
 
-    get_content = requests.get(f"http://127.0.0.1:8000/get_content/{content_id}")
-    get_style = requests.get(f"http://127.0.0.1:8000/get_style/{style_id}")
+    get_content = requests.get(f"{prefix}/get_content/{content_id}")
+    get_style = requests.get(f"{prefix}/get_style/{style_id}")
 
-    comp_req = requests.get(f"http://127.0.0.1:8000/composite?content_id={content_id}&style_id={style_id}")
+    comp_req = requests.get(f"{prefix}/composite?content_id={content_id}&style_id={style_id}")
     comp_image = Image.open('static/composites/comp.JPEG')
 
     return comp_image
