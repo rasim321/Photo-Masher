@@ -20,7 +20,6 @@ content_image = st.file_uploader("Choose a content image")
 if content_image is not None:
     content_file = {"uploaded_file": content_image}
     content_res = requests.post(f"{prefix}/content", files=content_file)
-    st.text(content_res)
 
 #Photo uploader for style
 style_image = st.file_uploader("Choose a style image")
