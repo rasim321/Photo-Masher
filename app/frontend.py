@@ -5,7 +5,8 @@ from database import return_max_content_id, return_max_style_id
 import time
 
 # uvicorn.run("app.app:app", host="0.0.0.0")
-prefix = "https://photo-masher.xyz"
+# prefix = "https://photo-masher.xyz"
+prefix = "147.182.213.198:8000"
 
 #Set the title
 st.title("Welcome to photo masher.")
