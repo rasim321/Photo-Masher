@@ -3,10 +3,9 @@ import requests
 from PIL import Image
 from database import return_max_content_id, return_max_style_id
 import time
-import uvicorn
 
 # uvicorn.run("app.app:app", host="0.0.0.0")
-prefix = "https://photo-masher.herokuapp.com"
+prefix = "https://photo-masher.xyz"
 
 #Set the title
 st.title("Welcome to photo masher.")
@@ -20,7 +19,6 @@ content_image = st.file_uploader("Choose a content image")
 if content_image is not None:
     content_file = {"uploaded_file": content_image}
     content_res = requests.post(f"{prefix}/content", files=content_file)
-    st.text(content_res)
 
 #Photo uploader for style
 style_image = st.file_uploader("Choose a style image")
