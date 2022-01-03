@@ -33,5 +33,5 @@ app.include_router(composites.router)
 
 @app.get("/hello", response_class=HTMLResponse)
 def welcome_page(request: Request):
-    data = {"page": "Welcome to the Frontend"}
+    data = {"page": "Welcome to the Frontend visitor!"}
     return templates.TemplateResponse("page.html", {"request": request, "data": data})
