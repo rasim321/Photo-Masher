@@ -6,7 +6,7 @@ import time
 
 # uvicorn.run("app.app:app", host="0.0.0.0")
 # prefix = "https://photo-masher.xyz"
-prefix = "https://147.182.213.198:8000"
+prefix = "http://backend:8000"
 
 #Set the title
 st.title("Welcome to photo masher.")
