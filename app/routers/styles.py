@@ -34,7 +34,7 @@ def get_content(id : int, request: Request, db: Session = Depends(get_db)):
 
     last_image = db.query(models.Style).filter(models.Style.id == id).first()
     unpickled_img = pickle.loads(last_image.style_str)
-    unpickled_img.save(f"static\\styles\\style.JPEG")
+    unpickled_img.save(f"style.JPEG")
 
     return templates.TemplateResponse('content.html', context={"request": request, "style_id": id})
 

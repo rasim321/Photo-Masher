@@ -14,12 +14,12 @@ router = APIRouter(
 def composite_image(request: Request, content_id : int, style_id: int, db : Session = Depends(get_db)):
 
     #Recieve the latest content and style images
-    content_path = f"static/contents/content.JPEG"
-    style_path = f"static/styles/style.JPEG"
+    content_path = f"content.JPEG"
+    style_path = f"style.JPEG"
 
     #Run the ML model and save the composite image
     composite_image = style_transfer(content_path, style_path)
-    composite_filepath = f"static\\composites\\comp.JPEG"
+    composite_filepath = "comp.JPEG"
     composite_image.save(composite_filepath)
 
     #Pickle the image to put in DB

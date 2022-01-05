@@ -54,7 +54,7 @@ def comp_image():
     get_style = requests.get(f"{prefix}/get_style/{style_id}")
 
     comp_req = requests.get(f"{prefix}/composite?content_id={content_id}&style_id={style_id}")
-    comp_image = Image.open('static/composites/comp.JPEG')
+    comp_image = Image.open('comp.JPEG')
 
     return comp_image
 

@@ -5,3 +5,6 @@ app/routers/__pycache__
 dbtest.py
 backend.service
 setup.sh
+content.JPEG
+style.JPEG
+comp.JPEG

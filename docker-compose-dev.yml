@@ -8,6 +8,9 @@ services:
       - postgres
     ports:
       - 8000:8000
+    volumes:
+      - ./:/usr/src/frontend/ #ro means docker can't change any of these files
+    command: uvicorn app.app:app --host 0.0.0.0 --port 8000 --reload
     # env_file: 
     #   - ./.env
     environment:
@@ -30,9 +33,10 @@ services:
       - backend
     ports:
       - 8501:8501
+    volumes:
+      - ./:/usr/src/frontend/
     # environment:
     #   - BACKEND_URL=http://localhost:8000
-
     networks:
       - deploy_network
 
@@ -50,7 +54,8 @@ services:
       - deploy_network
 
     volumes:
-      - postgres-db:/var/lib/postgresqp/data
+      - postgres-db:/var/lib/postgresql/data
+    
 
 
 networks:
@@ -59,4 +64,5 @@ networks:
 
 volumes:
   postgres-db:
+  frontend:
     

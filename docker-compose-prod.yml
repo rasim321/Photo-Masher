@@ -1,0 +1,65 @@
+version: "3"
+services: 
+  backend:
+    image: 
+      - rasmalai/photo-masher:backend_masher
+
+    depends_on:
+      - postgres
+    ports:
+      - 80:8000
+    # volumes:
+    #   - ./:/usr/src/frontend/:ro #ro means docker can't change any of these files
+    # command: uvicorn app.app:app --host 0.0.0.0 --port 8000
+    # env_file: 
+    #   - ./.env
+    environment:
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_HOSTNAME=${DATABASE_HOSTNAME}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_NAME=${DATABASE_NAME}
+    
+    networks:
+      - deploy_network
+
+    container_name: backend
+
+  frontend:
+    image: 
+      - rasmalai/photo-masher:frontend_masher
+
+    depends_on:
+      - backend
+    ports:
+      - 80:8501
+    # environment:
+    #   - BACKEND_URL=http://localhost:8000
+    networks:
+      - deploy_network
+
+    container_name: frontend
+  
+  postgres:
+    image: postgres
+    expose:
+      - '5432'
+    environment:
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DATABASE_NAME}
+    
+    networks:
+      - deploy_network
+
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    
+
+
+networks:
+  deploy_network:
+    driver: bridge
+
+volumes:
+  postgres-db:
+    
