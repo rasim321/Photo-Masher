@@ -6,6 +6,7 @@ Photo-masher takes two photos and make composites of those photos.
 
 # Content Photo
 ![Content Photo](/ali-karimiboroujeni.jpg | width = 200)
+<img src="/ali-karimiboroujeni.jpg" width="200">
 
 # Style Photo
 ![Style Photo](/kiko-camaclang.jpg | width = 200)
