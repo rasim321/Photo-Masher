@@ -35,6 +35,8 @@ def get_content(id : int, request: Request, db: Session = Depends(get_db)):
 
     last_image = db.query(models.Image).filter(models.Image.id == id).first()
     unpickled_img = pickle.loads(last_image.image_str)
+    if unpickled_img.mode in ("RGBA", "P"): 
+        unpickled_img = unpickled_img.convert("RGB")
     unpickled_img.save(f"content.JPEG")
 
     return templates.TemplateResponse('content.html', context={"request": request, "content_id": id})

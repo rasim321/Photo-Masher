@@ -16,13 +16,13 @@ st.text("Step 1: Upload images")
 st.text("Step 2: Hit Mash!")
 
 #Photo uploader for content
-content_image = st.file_uploader("Choose a content image")
+content_image = st.file_uploader("Choose a content image", type=['png','jpeg', 'jpg'])
 if content_image is not None:
     content_file = {"uploaded_file": content_image}
     content_res = requests.post(f"{prefix}/content", files=content_file)
 
 #Photo uploader for style
-style_image = st.file_uploader("Choose a style image")
+style_image = st.file_uploader("Choose a style image", type=['png','jpeg', 'jpg'])
 if style_image is not None:
     style_file = {"style_file": style_image}
     style_res = requests.post(f"{prefix}/style", files=style_file)
