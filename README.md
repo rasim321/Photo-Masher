@@ -5,12 +5,12 @@ AI made art has been a recent fascination for me and I wanted to make it easier 
 Photo-masher takes two photos and make composites of those photos. 
 
 # Content Photo
-![Content Photo](/ali-karimiboroujeni.jpg "content photo")
+![Content Photo](/ali-karimiboroujeni.jpg "content photo" | width = 200)
 
 # Style Photo
-![Style Photo](/kiko-camaclang.jpg "style photo")
+![Style Photo](/kiko-camaclang.jpg "style photo" | width = 200)
 
 These photos are used to make the following composite:
 
 # Composite Photo
-![Composite Photo](/composite_one.jpeg "composite photo")
+![Composite Photo](/composite_one.jpeg "composite photo" | width = 200)
