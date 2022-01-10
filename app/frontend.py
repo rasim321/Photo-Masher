@@ -4,6 +4,8 @@ from PIL import Image
 from database import return_max_content_id, return_max_style_id
 import time
 
+st.set_page_config(page_title="Photo-Masher")
+
 # uvicorn.run("app.app:app", host="0.0.0.0")
 # prefix = "https://photo-masher.xyz"
 prefix = "http://backend:8000"

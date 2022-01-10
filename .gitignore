@@ -8,3 +8,10 @@ setup.sh
 content.JPEG
 style.JPEG
 comp.JPEG
+.pytest_cache
+tests
+docker-compose-prod.yml
+docker-compose-dev.yml
+frontend.Dockerfile
+backend.Dockerfile
+Procfile
